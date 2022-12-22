@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>View Software</title>
+<style>
+
+h1{
+text-align:center;
+color:RED;background-color:black;
+}
+td{
+	color:white;
+}
+body{
+	 background-color:#ffff00;
+	 background:url('https://www.designmantic.com/blog/wp-content/uploads/2020/10/Computer-Software-Logos.jpg');			
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-info navbar-dark">
+
+  <!-- Brand -->
+  
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      
+        <li class="nav-item"><a class="nav-link" th:href="@{/Homepage}"><b>Home</b></a></li>
+      <li class="nav-item"><a class="nav-link" th:href="@{/Aboutus}"><b>About us</b></a></li>
+       <li class="nav-item"><a class="nav-link" th:href="@{/logout}"><b>Logout</b></a></li>
+							
+    </ul>
+  </div>
+</nav>	
+
+			<h1 style="color:red;background-color:black"><font size=14>LIST OF SOFTWARES</font></h1>
+		
+		
+		<table class="table table-striped table-dark">
+		
+			<thead class="table-dark">
+				<tr>
+				
+					<th>Software Name</th>
+						<th>Company Name</th>
+						<th>Description</th>
+						<th>Stock</th>
+					<th>Price</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="software : ${softwareList} ">
+					<td th:text="${software.softwarename}" class="sucess"></td>
+					<td th:text="${software.companyname}"></td>
+				<td th:text="${software.description}"></td>
+				<td th:text="${software.stock}"></td>
+				<td th:text="${software.price}"></td>
+				<td>
+					<a th:href ="@{/delete/{id}(id=${software.id})}" class="btn btn-danger">Delete</a>
+					<a th:href ="@{/update/{id}(id=${software.id})}" class="btn btn-success">Update</a>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<div>
+			<div class="col-lg-3">
+				<a th:href="@{software/createNewSoftware}" class="btn btn-info">Add new
+					software</a>
+					
+			</div>
+		</div>
+			
+
+</body>
+</html>

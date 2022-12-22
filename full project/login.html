@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Login Button</title>
+<style>
+body{
+background-image: url("https://wi.wallpapertip.com/wsimgs/26-265519_keyboard-wallpapers-computer-keyboard.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+ hight:100vh;
+}
+h1{color:Tomato;}
+td{font-size: 30px;
+color:yellow;
+}
+
+</style>
+</head>
+<body>
+<div align="center">
+<h1>LogIn Page</h1>
+<form th:action="@{/validationData}" th:object=${adminObj}  method="get">
+ <table>
+     <tbody>
+<tr>
+<td >Email Address:</td>
+<td><input type="text" class="Email"  name="username" th:field="*{username}"  autofocus required></input></td>
+</tr>
+</tbody>
+                 
+ <tbody>
+  <tr>
+ <td>Password:</td>
+ <td><input type="password" class="Password"  name="password" th:field="*{password}"  required></input></td>
+ </tr>
+ </tbody>
+ <tfoot>
+  <tr>
+ <td colspan="2">
+ <a href="/validationData"><input style=font-size:30px type="submit" class="btn btn-success" value="Login"/></a>
+ </td>
+ </tr>
+ </tfoot>
+ </table>
+ </form>
+      </div>
+</body>
+</html>
